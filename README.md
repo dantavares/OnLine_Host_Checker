@@ -7,6 +7,7 @@ Python script that checks if your host is online based on its service port, and 
 
 ## Usage
 Edit "bot_file.yml" and supply your Telegram Bot Token and ChatID
+
 Example:
 ```
 botok:  '5476678767:AAFDFW43dp9L4oWYQuZRzXfFDKs11aOD8v5'
@@ -14,6 +15,7 @@ chatid: '-1001691246687'
 ```
 
 Edit "esc_file.yml" and insert your hosts to check and service port. Always follow the above format!
+
 Example:
 ```
 - - Google
@@ -33,7 +35,7 @@ The Format
   - OffLine Flag (0 if Online, 1 if Offline)
 ```
 
-Offline flag is aways "0" and the scritp changes if got offline and back online.
+Offline flag is aways "0" and the scritp changes if is offline and back online.
 
 ### Executing
 ```
@@ -41,7 +43,7 @@ python3 ckonline.py -T <TIME> -v <Verbose On> -h <HELP!> --notelegram <Disable T
 ```
 #### Parameters
 
-##### -T <TIME> Time defined by nmap to wait a host response, default is T3, can be:
+##### -T <TIME> - Time defined by nmap to wait a host response, default is T3, can be:
 ```
 T0 = Insane
 T1 = Agressive
@@ -56,7 +58,6 @@ python3 ckonline.py -T T1
 ##### --notelegram - Do not send telegram msg, only stout
 
 ## Pratical Usage
-Put your script on crontab:
 Example 1 Crontab:
 ```
 */20 * * * * python3 /home/admin/ckonline/ckonline.py >> /tmp/ckonline_log.txt
