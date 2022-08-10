@@ -37,11 +37,11 @@ Offline flag is aways "0" and the scritp changes if got offline and back online.
 
 ### Executing
 ```
-python3 ckonline -T <TIME> -v <Verbose On> -h <HELP!> --notelegram <Disable Telegram MSG> 
+python3 ckonline.py -T <TIME> -v <Verbose On> -h <HELP!> --notelegram <Disable Telegram MSG> 
 ```
 #### Parameters
--T <TIME>
-Time defined by nmap to wait a host response, default is T3, can be:
+
+##### -T <TIME> Time defined by nmap to wait a host response, default is T3, can be:
 ```
 T0 = Insane
 T1 = Agressive
@@ -49,3 +49,25 @@ T2 = Gentle
 T3 = Default
 ```
 Example:
+```
+python3 ckonline.py -T T1
+```
+##### -v Verbose On - Aways tell you if the hosts is online or offline. By default, the scrit only send notification if the status changes.
+##### --notelegram - Do not send telegram msg, only stout
+
+## Pratical Usage
+Put your script on crontab:
+Example 1 Crontab:
+```
+*/20 * * * * python3 /home/admin/ckonline/ckonline.py >> /tmp/ckonline_log.txt
+```
+This example, scritp on folder "/home/admin/ckonline" check every 20 minutes and send stdout on logfile
+
+Example 2 on a php file:
+```
+<?php
+    echo '<!DOCTYPE html> <html> <head> <meta name="viewport" content="width=device-width, initial-scale=1.0"> </head> <body>';
+    echo "<pre>".shell_exec("python3 /home/admin/ckonline/ckonline.py --notelegram -v 2>&1")."<pre>";
+?>
+```
+This example lists the state and all hosts and shows it through a web page (apache server). Don't forget to give write permissions (user www-data) to the file 'esc_file.yml'.
