@@ -39,7 +39,7 @@ Offline flag is aways "0" and the scritp changes if is offline and back online.
 
 ### Executing
 ```
-python3 ckonline.py -T <TIME> -v <Verbose On> -h <HELP!> --notelegram <Disable Telegram MSG> 
+python3 ckonline.py -T <TIME> -v <Verbose On> -h <HELP!> --notelegram <Disable Telegram MSG> -t <Tries>
 ```
 #### Parameters
 
@@ -56,6 +56,12 @@ python3 ckonline.py -T T1
 ```
 ##### -v Verbose On - Aways tell you if the hosts is online or offline. By default, the scrit only send notification if the status changes.
 ##### --notelegram - Do not send telegram msg, only stout
+
+##### -t Tries - Number of tries after send offline message. Default 1 try
+Example tries 2 times:
+```
+python3 ckonline.py -t 2
+```
 
 ## Pratical Usage
 Example 1 Crontab:
