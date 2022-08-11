@@ -57,7 +57,7 @@ python3 ckonline.py -T T1
 ##### -v Verbose On - Aways tell you if the hosts is online or offline. By default, the scrit only send notification if the status changes.
 ##### --notelegram - Do not send telegram msg, only stout
 
-##### -t Tries - Number of tries after send offline message. Default 1 try
+##### -t Tries - Number of tries before send offline message. Default 1 try
 Example tries 2 times:
 ```
 python3 ckonline.py -t 2
